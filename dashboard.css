@@ -130,7 +130,7 @@
   
   th:nth-child(3),
   td:nth-child(3) {
-      width: 120px; /* "Üretim Tarihi" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 150px; /* "Üretim Tarihi" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
   
   th:nth-child(4),
@@ -156,12 +156,12 @@
   
   th:nth-child(8),
   td:nth-child(8) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
 
   th:nth-child(9),
   td:nth-child(9) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
 
   th:nth-child(10),
@@ -171,7 +171,7 @@
 
   th:nth-child(11),
   td:nth-child(11) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
 
   th:nth-child(12),
@@ -186,7 +186,7 @@
 
   th:nth-child(14),
   td:nth-child(14) {
-      width: 260px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 210px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
   
   th:nth-child(15),
@@ -221,7 +221,12 @@
 
   th:nth-child(21),
   td:nth-child(21) {
-      width: 600px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+      width: 200px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
+  }
+
+  th:nth-child(22),
+  td:nth-child(22) {
+      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
   // Diğer sütunlar için aynı şekilde devam edebilirsiniz...
   
@@ -229,4 +234,3 @@
   tbody tr {
     text-align: center;
   }
-  

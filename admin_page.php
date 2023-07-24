@@ -70,7 +70,6 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Admin Page</title>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
@@ -168,7 +167,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
 
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                <h3 class="fs-2"><?php echo $totalCheckedItemsToday; ?></h3>
@@ -177,7 +176,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                             <h3 class="fs-2"><?php echo $totalCheckedItemsWeekly; ?></h3>
@@ -186,7 +185,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                             <h3 class="fs-2"><?php echo $totalCheckedItemsMonthly; ?></h3>
@@ -195,7 +194,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 class="fs-2">%25</h3>
@@ -244,57 +243,61 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                             </thead>
                             
                             <tbody>
-                                 <?php
-                                 $servername = "localhost";
-                                 $username = "root";
-                                 $password = "";
-                                 $database = "user_db";
+   <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $database = "user_db";
 
-                                 $conn = new mysqli($servername, $username, $password, $database);
+      $conn = new mysqli($servername, $username, $password, $database);
 
-                                 if ($conn->connect_error) {
-                                    die("Connection Failed: " . $conn->connect_error);
-                                 }
-                                 $sql = "SELECT * FROM quality_control_forms";
-                                 $result = $conn->query($sql);
+      if ($conn->connect_error) {
+         die("Connection Failed: " . $conn->connect_error);
+      }
 
-                                 if (!$result) {
-                                    die("Invalid query: " . $conn->error);
-                                 }
+      $sql = "SELECT * FROM quality_control_forms";
+      $result = $conn->query($sql);
 
-                                 while ($row = $result->fetch_assoc()) {
-                                    echo '
-                                    <tr>
-                                          <td>' . $row["code"] . '</td>
-                                          <td>' . $row["serial_number"] . '</td>
-                                          <td>' . $row["production_date"] . '</td>
-                                          <td>' . $row["compliance_with_drawings_special_requests"] . '</td> 
-                                          <td>' . $row["external_cleaning_surface_quality"] . '</td>
-                                          <td>' . $row["internal_cleaning_surface_quality"] . '</td>
-                                          <td>' . $row["scales_of_pipe_connections"] . '</td>
-                                          <td>' . $row["compatibility_of_internal_elements"] . '</td>
-                                          <td>' . $row["checking_the_scale_from_the_head"] . '</td>
-                                          <td>' . $row["checking_the_cover_o_ring_screw_nut"] . '</td>
-                                          <td>' . $row["filter_foot_cleaning"] . '</td> 
-                                          <td>' . $row["screw_checking_suitable_for_filter_foot"] . '</td>
-                                          <td>' . $row["checking_the_labels"] . '</td>
-                                          <td>' . $row["internal_fiber_lamination"] . '</td>
-                                          <td>' . $row["result"] . '</td>
-                                          <td>' . $row["notes"] . '</td>
-                                          <td>' . $row["number"] . '</td>
-                                          <td>' . $row["check_time"] . '</td> 
-                                          <td>' . $row["checker"] . '</td>
-                                          <td>' . $row["check_date"] . '</td>
-                                          <td><a href="' . $row["video_link"] . '" target="_blank">' . $row["video_link"] . '</a></td>
-                                          <td>' . $row["client"] . '</td>
-                                    </tr>';
+      if (!$result) {
+         die("Invalid query: " . $conn->error);
+      }
 
-                                    
-                                 }
+      while ($row = $result->fetch_assoc()) {
+         $video_name = $row["code"] . "-" . $row["serial_number"];
+         $video_link = $row["video_link"];
+         $link_or_text = ($video_link != '') ? '<a href="' . $video_link . '" target="_blank">' . $video_name . '</a>' : 'Video Yok';
+         
+         echo '
+         <tr>
+            <td>' . $row["code"] . '</td>
+            <td>' . $row["serial_number"] . '</td>
+            <td>' . $row["production_date"] . '</td>
+            <td>' . $row["compliance_with_drawings_special_requests"] . '</td> 
+            <td>' . $row["external_cleaning_surface_quality"] . '</td>
+            <td>' . $row["internal_cleaning_surface_quality"] . '</td>
+            <td>' . $row["scales_of_pipe_connections"] . '</td>
+            <td>' . $row["compatibility_of_internal_elements"] . '</td>
+            <td>' . $row["checking_the_scale_from_the_head"] . '</td>
+            <td>' . $row["checking_the_cover_o_ring_screw_nut"] . '</td>
+            <td>' . $row["filter_foot_cleaning"] . '</td> 
+            <td>' . $row["screw_checking_suitable_for_filter_foot"] . '</td>
+            <td>' . $row["checking_the_labels"] . '</td>
+            <td>' . $row["internal_fiber_lamination"] . '</td>
+            <td>' . $row["result"] . '</td>
+            <td>' . $row["notes"] . '</td>
+            <td>' . $row["number"] . '</td>
+            <td>' . $row["check_time"] . '</td> 
+            <td>' . $row["checker"] . '</td>
+            <td>' . $row["check_date"] . '</td>
+            <td>' . $link_or_text . '</td>
+            <td>' . $row["client"] . '</td>
+         </tr>';
+      }
 
-                                 $conn->close();
-                                 ?>
-                              </tbody>
+      $conn->close();
+   ?>
+</tbody>
+
                         </table>
                         </div>
                     </div>
@@ -302,6 +305,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
             </div>
         </div>
     </div>
+</div>
     <!-- /#page-content-wrapper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -342,7 +346,6 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
             }
         }
     </script>
-
 
 
 </body>
