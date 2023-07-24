@@ -214,15 +214,32 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                         <button class="btn btn-primary" type="button" onclick="filterTable()">Ara</button>
                      </div>
                   </div>
+                  <div style="overflow-x: auto;">
                           <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Client</th>
-                                    <th scope="col">Code</th>
-                                    <th scope="col">Serial Number</th>
-                                    <th scope="col">Production Date</th>
-                                    <th scope="col">Video Link</th>
+                                    <th scope="col">Kod</th>
+                                    <th scope="col">Seri No</th>
+                                    <th scope="col">Üretim Tarihi</th>
+                                    <th scope="col">Çizimlere ve özel taleplere uygunluk</th>
+                                    <th scope="col">Dış temizlik ve yüzey kalitesi</th>
+                                    <th scope="col">İç temizlik</th>
+                                    <th scope="col">Boru bağlantılarının terazisi</th>
+                                    <th scope="col">İç elemanların uygunluğu</th>
+                                    <th scope="col">Kafadan terazi kontrolü</th>
+                                    <th scope="col">kapak, oring, vida, somun kontrolü</th>
+                                    <th scope="col">Filtre ayak temizliği</th>
+                                    <th scope="col">Filtre ayağına uygun vida kontrolü</th>
+                                    <th scope="col">Etiketlerin kontrolü</th>
+                                    <th scope="col">İç elyaf laminasyonu</th>
+                                    <th scope="col">Sonuç</th>
+                                    <th scope="col">Notlar</th>
+                                    <th scope="col">Numarası</th>
+                                    <th scope="col">Kontrol süresi</th>
+                                    <th scope="col">Kontrol eden</th>
+                                    <th scope="col">Kontrol tarihi</th>
+                                    <th scope="col">Video linki</th>
+                                    <th scope="col">Müşteri</th>
                                 </tr>
                             </thead>
                             
@@ -248,12 +265,28 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                                  while ($row = $result->fetch_assoc()) {
                                     echo '
                                     <tr>
-                                          <td>' . $row["id"] . '</td> 
-                                          <td>' . $row["client"] . '</td>
                                           <td>' . $row["code"] . '</td>
                                           <td>' . $row["serial_number"] . '</td>
                                           <td>' . $row["production_date"] . '</td>
+                                          <td>' . $row["compliance_with_drawings_special_requests"] . '</td> 
+                                          <td>' . $row["external_cleaning_surface_quality"] . '</td>
+                                          <td>' . $row["internal_cleaning_surface_quality"] . '</td>
+                                          <td>' . $row["scales_of_pipe_connections"] . '</td>
+                                          <td>' . $row["compatibility_of_internal_elements"] . '</td>
+                                          <td>' . $row["checking_the_scale_from_the_head"] . '</td>
+                                          <td>' . $row["checking_the_cover_o_ring_screw_nut"] . '</td>
+                                          <td>' . $row["filter_foot_cleaning"] . '</td> 
+                                          <td>' . $row["screw_checking_suitable_for_filter_foot"] . '</td>
+                                          <td>' . $row["checking_the_labels"] . '</td>
+                                          <td>' . $row["internal_fiber_lamination"] . '</td>
+                                          <td>' . $row["result"] . '</td>
+                                          <td>' . $row["notes"] . '</td>
+                                          <td>' . $row["number"] . '</td>
+                                          <td>' . $row["check_time"] . '</td> 
+                                          <td>' . $row["checker"] . '</td>
+                                          <td>' . $row["check_date"] . '</td>
                                           <td><a href="' . $row["video_link"] . '" target="_blank">' . $row["video_link"] . '</a></td>
+                                          <td>' . $row["client"] . '</td>
                                     </tr>';
                                  }
 
@@ -261,6 +294,7 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                                  ?>
                               </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

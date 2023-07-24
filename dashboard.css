@@ -103,3 +103,29 @@
 .input-group .form-control {
         width: 500px; /* İstediğiniz genişliği burada belirleyebilirsiniz */
     }
+
+    .table {
+        table-layout: fixed; /* Tablonun genişliğini sütun içeriğine göre otomatik olarak ayarlar */
+        width: 100%; /* Tablonun %100 genişlikte olmasını sağlar */
+        white-space: nowrap; /* Tablo hücrelerinde metinleri otomatik olarak sarmaz */
+    }
+
+    th {
+        padding: 10px; /* Sütun başlıklarına dolgu ekleyerek metni kenarlardan ayırır */
+    }
+
+    /* İstenilen sütunlara göre genişlik değerlerini belirleyebilirsiniz */
+    th:nth-child(1),
+    td:nth-child(1) {
+        width: 70px; /* "Kod" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+        width: 120px; /* "Seri No" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+        width: 120px; /* "Üretim Tarihi" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
+    }    
