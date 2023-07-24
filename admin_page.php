@@ -288,6 +288,8 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                                           <td><a href="' . $row["video_link"] . '" target="_blank">' . $row["video_link"] . '</a></td>
                                           <td>' . $row["client"] . '</td>
                                     </tr>';
+
+                                    
                                  }
 
                                  $conn->close();

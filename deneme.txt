@@ -1,0 +1,457 @@
+if ((scaledph >= 0 && scaledph <= 700 && scaledrdx >= 0 && scaledrdx <= 735) ||
+
+    (scaledph > 710 && scaledph <= 720 && scaledrdx >= 0 && scaledrdx <= 725) ||
+
+    (scaledph > 720 && scaledph <= 730 && scaledrdx >= 0 && scaledrdx <= 720) ||
+
+    (scaledph > 730 && scaledph <= 740 && scaledrdx >= 0 && scaledrdx <= 712) ||
+
+    (scaledph > 740 && scaledph <= 750 && scaledrdx >= 0 && scaledrdx <= 704) ||
+
+    (scaledph > 750 && scaledph <= 760 && scaledrdx >= 0 && scaledrdx <= 695) ||
+
+    (scaledph > 760 && scaledph <= 770 && scaledrdx >= 0 && scaledrdx <= 687) ||
+
+    (scaledph > 770 && scaledph <= 780 && scaledrdx >= 0 && scaledrdx <= 680) ||
+
+    (scaledph > 780 && scaledph <= 790 && scaledrdx >= 0 && scaledrdx <= 675) ||
+
+    (scaledph > 790 && scaledph <= 800 && scaledrdx >= 0 && scaledrdx <= 668) ||
+
+    (scaledph > 800 && scaledph <= 810 && scaledrdx >= 0 && scaledrdx <= 662)) {
+
+  ppmValue = 0.5;
+
+  elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 735 && scaledrdx <= 760) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 725 && scaledrdx <= 750) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 720 && scaledrdx <= 742) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 712 && scaledrdx <= 734) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 704 && scaledrdx <= 725) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 695 && scaledrdx <= 716) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 687 && scaledrdx <= 709) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 680 && scaledrdx <= 703) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 675 && scaledrdx <= 695) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 668 && scaledrdx <= 689) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 662 && scaledrdx <= 684)):
+
+ 
+
+    ppmValue = 1.0
+
+    elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 760 && scaledrdx <= 772) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 750 && scaledrdx <= 765) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 742 && scaledrdx <= 756) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 734 && scaledrdx <= 748) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 725 && scaledrdx <= 738) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 716 && scaledrdx <= 731) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 709 && scaledrdx <= 722) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 703 && scaledrdx <= 715) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 695 && scaledrdx <= 708) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 689 && scaledrdx <= 702) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 684 && scaledrdx <= 897)):
+
+ 
+
+    ppmValue = 1.5
+
+    elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 772 && scaledrdx <= 780) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 765 && scaledrdx <= 772) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 756 && scaledrdx <= 763) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 748 && scaledrdx <= 756) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 738 && scaledrdx <= 748) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 731 && scaledrdx <= 740) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 722 && scaledrdx <= 732) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 715 && scaledrdx <= 724) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 708 && scaledrdx <= 717) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 702 && scaledrdx <= 712) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 697 && scaledrdx <= 705)):
+
+ 
+
+    ppmValue = 2.0
+
+    elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 780 && scaledrdx <= 788) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 772 && scaledrdx <= 780) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 763 && scaledrdx <= 772) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 756 && scaledrdx <= 763) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 748 && scaledrdx <= 754) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 740 && scaledrdx <= 746) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 732 && scaledrdx <= 738) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 724 && scaledrdx <= 732) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 717 && scaledrdx <= 725) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 712 && scaledrdx <= 718) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 705 && scaledrdx <= 714)):
+
+ 
+
+    ppmValue = 2.5
+
+    elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 788 && scaledrdx <= 794) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 780 && scaledrdx <= 785) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 772 && scaledrdx <= 778) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 763 && scaledrdx <= 769) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 754 && scaledrdx <= 761) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 746 && scaledrdx <= 753) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 738 && scaledrdx <= 745) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 732 && scaledrdx <= 737) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 725 && scaledrdx <= 731) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 718 && scaledrdx <= 724) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 714 && scaledrdx <= 719)):
+
+ 
+
+    ppmValue = 3.0
+
+    elif 
+     ((scaledph > 0 && scaledph <= 700 && scaledrdx > 794 && scaledrdx <= 800) ||
+
+      (scaledph > 710 && scaledph <= 720 && scaledrdx > 785 && scaledrdx <= 792) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 778 && scaledrdx <= 782) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 769 && scaledrdx <= 774) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 761 && scaledrdx <= 765) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 753 && scaledrdx <= 758) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 745 && scaledrdx <= 750) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 737 && scaledrdx <= 742) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 731 && scaledrdx <= 735) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 724 && scaledrdx <= 729) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 719 && scaledrdx <= 724)):
+
+ 
+
+    ppmValue = 3.5
+
+    elif 
+
+      ((scaledph > 710 && scaledph <= 720 && scaledrdx > 792 && scaledrdx <= 738) ||
+
+      (scaledph > 720 && scaledph <= 730 && scaledrdx > 782 && scaledrdx <= 786) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 774 && scaledrdx <= 778) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 765 && scaledrdx <= 770) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 758 && scaledrdx <= 762) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 750 && scaledrdx <= 754) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 742 && scaledrdx <= 746) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 735 && scaledrdx <= 739) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 729 && scaledrdx <= 734) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 724 && scaledrdx <= 728)):
+
+ 
+
+    ppmValue = 4.0
+
+    elif 
+
+      ((scaledph > 720 && scaledph <= 730 && scaledrdx > 786 && scaledrdx <= 792) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 778 && scaledrdx <= 782) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 770 && scaledrdx <= 774) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 762 && scaledrdx <= 766) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 754 && scaledrdx <= 757) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 746 && scaledrdx <= 751) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 739 && scaledrdx <= 743) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 734 && scaledrdx <= 736) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 728 && scaledrdx <= 733)):
+
+ 
+
+    ppmValue = 4.5
+
+    elif 
+
+      ((scaledph > 720 && scaledph <= 730 && scaledrdx > 792 && scaledrdx <= 798) ||
+
+      (scaledph > 730 && scaledph <= 740 && scaledrdx > 782 && scaledrdx <= 785) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 774 && scaledrdx <= 778) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 766 && scaledrdx <= 769) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 757 && scaledrdx <= 761) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 751 && scaledrdx <= 754) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 743 && scaledrdx <= 746) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 736 && scaledrdx <= 741) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 733 && scaledrdx <= 736)):
+
+ 
+
+    ppmValue = 5.0
+
+     elif 
+
+      ((scaledph > 730 && scaledph <= 740 && scaledrdx > 785 && scaledrdx <= 789) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 778 && scaledrdx <= 781) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 769 && scaledrdx <= 772) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 761 && scaledrdx <= 764) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 754 && scaledrdx <= 756) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 746 && scaledrdx <= 750) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 741 && scaledrdx <= 744) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 736 && scaledrdx <= 738)):
+
+ 
+
+    ppmValue = 5.5
+
+     elif 
+
+      ((scaledph > 730 && scaledph <= 740 && scaledrdx > 789 && scaledrdx <= 793) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 781 && scaledrdx <= 783) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 772 && scaledrdx <= 775) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 764 && scaledrdx <= 767) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 756 && scaledrdx <= 760) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 750 && scaledrdx <= 753) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 744 && scaledrdx <= 746) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 738 && scaledrdx <= 742)):
+
+ 
+
+    ppmValue = 6.0
+
+     elif 
+
+      ((scaledph > 730 && scaledph <= 740 && scaledrdx > 793 && scaledrdx <= 796) ||
+
+      (scaledph > 740 && scaledph <= 750 && scaledrdx > 783 && scaledrdx <= 786) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 775 && scaledrdx <= 777) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 767 && scaledrdx <= 770) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 760 && scaledrdx <= 762) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 753 && scaledrdx <= 756) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 746 && scaledrdx <= 749) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 742 && scaledrdx <= 744)):
+
+ 
+
+    ppmValue = 6.5
+
+     elif 
+
+      ((scaledph > 740 && scaledph <= 750 && scaledrdx > 786 && scaledrdx <= 788) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 777 && scaledrdx <= 780) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 770 && scaledrdx <= 772) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 762 && scaledrdx <= 765) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 756 && scaledrdx <= 758) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 749 && scaledrdx <= 752) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 744 && scaledrdx <= 746)):
+
+ 
+
+    ppmValue = 7.0
+
+     elif 
+
+      ((scaledph > 740 && scaledph <= 750 && scaledrdx > 788 && scaledrdx <= 792) ||
+
+      (scaledph > 750 && scaledph <= 760 && scaledrdx > 780 && scaledrdx <= 782) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 772 && scaledrdx <= 774) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 765 && scaledrdx <= 767) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 758 && scaledrdx <= 760) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 752 && scaledrdx <= 754) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 746 && scaledrdx <= 749)):
+
+ 
+
+    ppmValue = 7.5
+
+    elif 
+
+      ((scaledph > 750 && scaledph <= 760 && scaledrdx > 782 && scaledrdx <= 784) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 774 && scaledrdx <= 776) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 767 && scaledrdx <= 769) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 760 && scaledrdx <= 762) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 754 && scaledrdx <= 756) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 749 && scaledrdx <= 751)):
+
+ 
+
+    ppmValue = 8.0
+
+    elif 
+
+      ((scaledph > 750 && scaledph <= 760 && scaledrdx > 784 && scaledrdx <= 786) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 776 && scaledrdx <= 778) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 769 && scaledrdx <= 771) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 762 && scaledrdx <= 764) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 756 && scaledrdx <= 758) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 751 && scaledrdx <= 753)):
+
+ 
+
+    ppmValue = 8.5
+
+     elif 
+
+      ((scaledph > 750 && scaledph <= 760 && scaledrdx > 786 && scaledrdx <= 788) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 778 && scaledrdx <= 780) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 771 && scaledrdx <= 773) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 764 && scaledrdx <= 766) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 758 && scaledrdx <= 760) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 753 && scaledrdx <= 755)):
+
+ 
+
+    ppmValue = 9.0
+
+     elif 
+
+      ((scaledph > 750 && scaledph <= 760 && scaledrdx > 788 && scaledrdx <= 790) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 780 && scaledrdx <= 782) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 773 && scaledrdx <= 775) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 766 && scaledrdx <= 767) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 760 && scaledrdx <= 762) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 755 && scaledrdx <= 756)):
+
+ 
+
+    ppmValue = 9.5
+
+    elif 
+
+      ((scaledph > 750 && scaledph <= 760 && scaledrdx > 790 && scaledrdx <= 792) ||
+
+      (scaledph > 760 && scaledph <= 770 && scaledrdx > 782 && scaledrdx <= 784) ||
+
+      (scaledph > 770 && scaledph <= 780 && scaledrdx > 777 && scaledrdx <= 777) ||
+
+      (scaledph > 780 && scaledph <= 790 && scaledrdx > 767 && scaledrdx <= 769) ||
+
+      (scaledph > 790 && scaledph <= 800 && scaledrdx > 762 && scaledrdx <= 763) ||
+
+      (scaledph > 800 && scaledph <= 810 && scaledrdx > 756 && scaledrdx <= 758)):
+
+ 
+
+    ppmValue = 10.0
+
+}
