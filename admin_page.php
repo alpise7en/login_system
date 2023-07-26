@@ -60,6 +60,20 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
     $totalCheckedItemsMonthly = 0;
 }
 
+// Toplam kontrol edilen ürün sayısını almak için
+$sql_total = "SELECT COUNT(*) as total FROM quality_control_forms";
+$result_total = $conn->query($sql_total);
+
+if ($result_total && $result_total->num_rows > 0) {
+    $row_total = $result_total->fetch_assoc();
+    $totalCheckedItemsTotal = $row_total["total"];
+} else {
+    $totalCheckedItemsTotal = 0;
+}
+
+// Yüzde hesaplaması
+$percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $totalCheckedItemsTotal) * 100) : 0;
+
 
 ?>
 
@@ -87,7 +101,10 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="dashboard.css" />
-    <title>Bootstrap 5 Responsive Admin Dashboard</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -195,14 +212,17 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
                     </div>
 
                     <div class="col-md-2">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">%25</h3>
-                                <p class="fs-5">Toplam kontrol edilenler</p>
-                            </div>
-                        </div>
+                  <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                <div>
+                        <h3 class="fs-2"><?php echo $totalCheckedItemsTotal; ?></h3>
+                        <p class="fs-5">Toplam kontrol edilenler</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="chart-container" style="width: 300px; height: 200px;">
+         <canvas id="myBarChart"></canvas>
+        </div>
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Recent Orders</h3>
@@ -346,6 +366,57 @@ if ($result_monthly && $result_monthly->num_rows > 0) {
             }
         }
     </script>
+
+
+<script>
+  // Verileri PHP değişkenlerinden alalım
+  var totalCheckedItemsToday = <?php echo $totalCheckedItemsToday; ?>;
+  var totalCheckedItemsWeekly = <?php echo $totalCheckedItemsWeekly; ?>;
+  var totalCheckedItemsMonthly = <?php echo $totalCheckedItemsMonthly; ?>;
+  var totalCheckedItemsTotal = <?php echo $totalCheckedItemsTotal; ?>;
+
+  // Bar Chart için gerekli verileri hazırlayalım
+  var ctx = document.getElementById("myBarChart").getContext("2d");
+  var myBarChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Bugün", "Bu Hafta", "Bu Ay", "Toplam"],
+      datasets: [
+        {
+          label: "Kontrol Edilen Ürünler",
+          data: [
+            totalCheckedItemsToday,
+            totalCheckedItemsWeekly,
+            totalCheckedItemsMonthly,
+            totalCheckedItemsTotal,
+          ],
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.5)",
+            "rgba(54, 162, 235, 0.5)",
+            "rgba(255, 206, 86, 0.5)",
+            "rgba(75, 192, 192, 0.5)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
+    },
+  options: {
+    maintainAspectRatio: false,
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
+</script>
 
 
 </body>

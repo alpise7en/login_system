@@ -1,6 +1,6 @@
 :root {
     --main-bg-color: blue;
-    --main-text-color: #4c74e4;
+    --main-text-color: black;
     --second-text-color: #bbbec5;
     --second-bg-color: white;
   }
@@ -29,11 +29,11 @@
     overflow-x: hidden;
     background-image: linear-gradient(
       to right,
-      #4c74e4,
-      #4c74e4,
-      #4c74e4,
-      #4c74e4,
-      #4c74e4
+      #16113a,
+      #16113a,
+      #16113a,
+      #16113a,
+      #16113a
     );
   }
   
@@ -65,7 +65,7 @@
   
   #menu-toggle {
     cursor: pointer;
-    color: black;
+    color: white;
   }
   
   .list-group-item {
@@ -228,9 +228,34 @@
   td:nth-child(22) {
       width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
   }
-  // Diğer sütunlar için aynı şekilde devam edebilirsiniz...
   
   /* Tablo satırlarının ortalanması */
   tbody tr {
     text-align: center;
   }
+
+
+  /* Grafiğin içerisinde yer aldığı konteynerin boyutunu belirleyin */
+.chart-container {
+  width: 200px; /* İstenilen genişlik */
+  height: 150px; /* İstenilen yükseklik */
+}
+
+/* Bar grafiğin boyutunu düzenleyin */
+#myBarChart {
+  width: 50% !important;
+  height: 50% !important;
+}
+
+.fs-2.m-0 {
+  color: white; /* Başka bir renk seçimi burada */
+}
+
+
+.admin_name {
+  color: white; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+}
+
+.fas {
+  color: white; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+}
