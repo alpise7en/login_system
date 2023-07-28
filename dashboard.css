@@ -71,6 +71,7 @@
   .list-group-item {
     border: none;
     padding: 20px 30px;
+    color: black
   }
   
   .list-group-item.active {
@@ -106,8 +107,10 @@
 
   .table {
     table-layout: fixed;
-    width: 100%;
     white-space: nowrap;
+    border-collapse: collapse;
+    width: 100%;
+    border: 4px solid #ccc;
   }
   
   th, td {
@@ -236,15 +239,17 @@
 
 
   /* Grafiğin içerisinde yer aldığı konteynerin boyutunu belirleyin */
-.chart-container {
-  width: 200px; /* İstenilen genişlik */
-  height: 150px; /* İstenilen yükseklik */
+  .chart-container {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 /* Bar grafiğin boyutunu düzenleyin */
 #myBarChart {
-  width: 50% !important;
-  height: 50% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .fs-2.m-0 {
@@ -257,5 +262,20 @@
 }
 
 .fas {
+  color: black; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+}
+
+.recent-orders-heading {
   color: white; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+}
+
+/* "Ara" butonunun rengini değiştiren stil */
+.btn-primary {
+  background-color: #e5c852; /* Yeni renk kodunu burada belirleyin, istediğiniz renk ile değiştirin */
+  border-color: #ff0000; /* Buton kenarlık rengini değiştirmek için */
+}
+
+.fas.fa-user {
+  color: white;
+  margin-left: 3px;
 }

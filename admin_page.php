@@ -220,12 +220,12 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 </div>
             </div>
 
-            <div class="chart-container" style="width: 300px; height: 200px;">
+            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded" style="width: 300px; height: 184px;">
          <canvas id="myBarChart"></canvas>
         </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Recent Orders</h3>
+                <h3 class="fs-4 mb-3 recent-orders-heading">Recent Orders</h3>
                     <div class="col">
                     <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" placeholder="Arama yap..." onkeydown="handleEnter(event)">
@@ -377,44 +377,44 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 
   // Bar Chart için gerekli verileri hazırlayalım
   var ctx = document.getElementById("myBarChart").getContext("2d");
-  var myBarChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["Bugün", "Bu Hafta", "Bu Ay", "Toplam"],
-      datasets: [
-        {
-          label: "Kontrol Edilen Ürünler",
-          data: [
-            totalCheckedItemsToday,
-            totalCheckedItemsWeekly,
-            totalCheckedItemsMonthly,
-            totalCheckedItemsTotal,
-          ],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.5)",
-            "rgba(54, 162, 235, 0.5)",
-            "rgba(255, 206, 86, 0.5)",
-            "rgba(75, 192, 192, 0.5)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-          ],
-          borderWidth: 1,
+        var myBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Bugün", "Bu Hafta", "Bu Ay", "Toplam"],
+                datasets: [
+                    {
+                        label: "Kontrol Edilen Ürünler",
+                        data: [totalCheckedItemsToday, totalCheckedItemsWeekly, totalCheckedItemsMonthly, totalCheckedItemsTotal],
+                        backgroundColor: [
+                            "rgba(1,209,255,255)",    /* Kırmızı renk tonu */
+                            "rgba(1,209,255,255)",    /* Mavi renk tonu */
+                            "rgba(1,209,255,255)",    /* Sarı renk tonu */
+                            "rgba(1,209,255,255)",    /* Turkuaz renk tonu */
+                        ],
+                        borderColor: [
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+            x: {
+                grid: {
+                    display: false // X ekseni (yatay çizgiler) için gridLines'i kapat
+                }
+            },
+            y: {
+                beginAtZero: true,
+            },
         },
-      ],
     },
-  options: {
-    maintainAspectRatio: false,
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
 });
 </script>
 
