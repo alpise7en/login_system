@@ -227,6 +227,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 <div class="row my-5">
                 <h3 class="fs-4 mb-3 recent-orders-heading">Forms</h3>
                     <div class="col">
+                     <div class="input-group mb-3">
                     <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" placeholder="Arama yap..." onkeydown="handleEnter(event)">
                      <div class="input-group-append">
@@ -318,11 +319,11 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
    ?>
 </tbody>
 
-                        </table>
-                        </div>
-                    </div>
-                </div>
+                </table>
             </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -417,7 +418,6 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
     },
 });
 </script>
-
 
 </body>
 
