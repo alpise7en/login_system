@@ -1,0 +1,39 @@
+<?php
+// Veritabanı bağlantısını yapın
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "user_db";
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+}
+
+// Seçilen tabloyu alın
+if (isset($_GET['table'])) {
+    $selectedTable = $_GET['table'];
+    
+    // SQL sorgusu oluşturun
+    $sql = "SELECT * FROM $selectedTable";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        die("Invalid query: " . $conn->error);
+    }
+
+    $data = array();
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    // Veritabanı bağlantısını kapatın
+    $conn->close();
+
+    // Sonuçları JSON formatında döndürün
+    header('Content-Type: application/json');
+    echo json_encode($data);
+} else {
+    echo "Table not selected.";
+}
+?>

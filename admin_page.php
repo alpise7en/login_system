@@ -227,7 +227,6 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 <div class="row my-5">
                 <h3 class="fs-4 mb-3 recent-orders-heading">Forms</h3>
                     <div class="col">
-                     <div class="input-group mb-3">
                     <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" placeholder="Arama yap..." onkeydown="handleEnter(event)">
                      <div class="input-group-append">
@@ -235,8 +234,16 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                      </div>
                   </div>
                   <div style="overflow-x: auto;">
-                          <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
+                  <ul class="nav nav-tabs" id="formTabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform1" data-tab="form1">form1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform2" data-tab="form2">form2</a>
+                </li>
+            </ul>
+            <table class="table bg-white rounded shadow-sm table-hover" id="tableform1">
+            <thead>
                                 <tr>
                                     <th scope="col">Kod</th>
                                     <th scope="col">Seri No</th>
@@ -262,9 +269,8 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                                     <th scope="col">Müşteri</th>
                                 </tr>
                             </thead>
-                            
-                            <tbody>
-   <?php
+    <tbody>
+    <?php
       $servername = "localhost";
       $username = "root";
       $password = "";
@@ -317,13 +323,87 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 
       $conn->close();
    ?>
-</tbody>
+    </tbody>
+</table>
 
-                </table>
+<table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform2">
+<thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Müşteri</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Kod</th>
+            <th scope="col">Sipariş Miktarı</th>
+            <th scope="col">İncelenen Miktar</th>
+            <th scope="col">Paket İçeriği Kontrolü</th>
+            <th scope="col">Yüzey Kontrolü</th>
+            <th scope="col">Montaj Kontrolü</th>
+            <th scope="col">Renk Kontrolü</th>
+            <th scope="col">Bağlantı Kontrolü</th>
+            <th scope="col">Paketleme Kontrolü</th>
+            <th scope="col">Etiket Kontrolü</th>
+            <th scope="col">Test Miktarı</th>
+            <th scope="col">Test Sonucu</th>
+            <th scope="col">Kabul Miktarı</th>
+            <th scope="col">Red Miktarı</th>
+            <th scope="col">Notlar</th>
+            <th scope="col">İnceleyen</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM assembly_quality_control_form";
+        $result = $conn->query($sql);
+
+        if (!$result) {
+            die("Invalid query: " . $conn->error);
+        }
+
+        while ($row = $result->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>' . $row["id"] . '</td>
+                <td>' . $row["date"] . '</td>
+                <td>' . $row["customer"] . '</td>
+                <td>' . $row["product_name"] . '</td>
+                <td>' . $row["code"] . '</td>
+                <td>' . $row["order_quantity"] . '</td>
+                <td>' . $row["inspected_quantity"] . '</td>
+                <td>' . $row["package_content_check"] . '</td>
+                <td>' . $row["surface_check"] . '</td>
+                <td>' . $row["assembly_check"] . '</td>
+                <td>' . $row["color_check"] . '</td>
+                <td>' . $row["connection_check"] . '</td>
+                <td>' . $row["packing_check"] . '</td>
+                <td>' . $row["label_check"] . '</td>
+                <td>' . $row["test_quantity"] . '</td>
+                <td>' . $row["test_result"] . '</td>
+                <td>' . $row["acceptance_quantity"] . '</td>
+                <td>' . $row["rejection_quantity"] . '</td>
+                <td>' . $row["notes"] . '</td>
+                <td>' . $row["inspector"] . '</td>
+            </tr>';
+        }
+
+        $conn->close();
+        ?>
+</table>                    
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
         </div>
     </div>
 </div>
@@ -337,37 +417,37 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
             el.classList.toggle("toggled");
         };
     </script>
-    <script>
-        function handleEnter(event) {
-            if (event.key === "Enter") {
-                filterTable();
-            }
-        }
+ <script>
+    function filterTable(tableId) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById(tableId);
+        tr = table.getElementsByTagName("tr");
 
-        function filterTable() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementsByClassName("table")[0];
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 1; i < tr.length; i++) { // Skip the header row (i=0)
-                td = tr[i].getElementsByTagName("td");
-                var visible = false;
-                for (var j = 0; j < td.length; j++) {
-                    if (td[j]) {
-                        txtValue = td[j].textContent || td[j].innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            visible = true;
-                            break;
-                        }
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            var visible = false;
+            for (var j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        visible = true;
+                        break;
                     }
                 }
-                tr[i].style.display = visible ? "" : "none";
             }
+            tr[i].style.display = visible ? "" : "none";
         }
-    </script>
+    }
 
+    document.getElementById("searchInput").addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            filterTable("tableform1"); // İlk tablo için filtreleme
+            filterTable("tableform2"); // İkinci tablo için filtreleme
+        }
+    });
+</script>
 
 <script>
   // Verileri PHP değişkenlerinden alalım
@@ -418,6 +498,26 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
     },
 });
 </script>
+
+<script>
+    const tabs = document.getElementById('formTabs').querySelectorAll('.nav-link');
+    const tables = document.querySelectorAll('table');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+            const tabId = this.getAttribute('data-tab');
+            tables.forEach(table => {
+                if (table.id === `table${tabId}`) {
+                    table.classList.remove('d-none');
+                } else {
+                    table.classList.add('d-none');
+                }
+            });
+        });
+    });
+</script>
+
 
 </body>
 
