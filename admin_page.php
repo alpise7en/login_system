@@ -241,6 +241,15 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 <li class="nav-item">
                     <a class="nav-link" href="#tableform2" data-tab="form2">form2</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform3" data-tab="form3">form3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform4" data-tab="form4">form4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform5" data-tab="form5">form5</a>
+                </li>
             </ul>
             <table class="table bg-white rounded shadow-sm table-hover" id="tableform1">
             <thead>
@@ -326,7 +335,66 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
     </tbody>
 </table>
 
+
 <table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform2">
+<thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Müşteri Adı</th>
+        <th scope="col">Ürün Kodu</th>
+        <th scope="col">Sipariş Sayısı</th>
+        <th scope="col">Kontrol Sayısı</th>
+        <th scope="col">Seri Numarası Aralığı</th>
+        <th scope="col">Paket İçeriği Kontrolü</th>
+        <th scope="col">Kesik ve Yüzey İncelemesi</th>
+        <th scope="col">Diş İncelemesi</th>
+        <th scope="col">Notlar</th>
+    </tr>
+</thead>
+<tbody>
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "user_db";
+
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    if ($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM multiway_valve_control_form";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        die("Invalid query: " . $conn->error);
+    }
+
+    while ($row = $result->fetch_assoc()) {
+        echo '
+        <tr>
+            <td>' . $row["id"] . '</td>
+            <td>' . $row["customer_name"] . '</td>
+            <td>' . $row["product_code"] . '</td>
+            <td>' . $row["number_of_orders"] . '</td>
+            <td>' . $row["number_of_checks"] . '</td>
+            <td>' . $row["serial_number_range"] . '</td>
+            <td>' . $row["in_pack_check"] . '</td>
+            <td>' . $row["burr_and_surface_inspection"] . '</td>
+            <td>' . $row["dental_check"] . '</td>
+            <td>' . $row["notes"] . '</td>
+        </tr>';
+    }
+
+    $conn->close();
+    ?>
+</tbody>
+</table>
+
+
+
+<table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform3">
 <thead>
         <tr>
             <th scope="col">ID</th>
@@ -399,7 +467,139 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 
         $conn->close();
         ?>
-</table>                    
+</table>         
+
+
+<table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform4">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Müşteri</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Kod</th>
+            <th scope="col">Sipariş Miktarı</th>
+            <th scope="col">Montaj Kontrolü</th>
+            <th scope="col">Paket İçeriği Kontrolü</th>
+            <th scope="col">Yüzey Kontrolü</th>
+            <th scope="col">İnceleyen</th>
+            <th scope="col">Notlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM ladder_final_control_form";
+        $result = $conn->query($sql);
+
+        if (!$result) {
+            die("Invalid query: " . $conn->error);
+        }
+
+        while ($row = $result->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>' . $row["id"] . '</td>
+                <td>' . $row["date"] . '</td>
+                <td>' . $row["customer"] . '</td>
+                <td>' . $row["model"] . '</td>
+                <td>' . $row["code"] . '</td>
+                <td>' . $row["order_quantity"] . '</td>
+                <td>' . ($row["handle_control"] ? 'Evet' : 'Hayır') . '</td>
+                <td>' . ($row["in_box_control"] ? 'Evet' : 'Hayır') . '</td>
+                <td>' . ($row["surface_control"] ? 'Evet' : 'Hayır') . '</td>
+                <td>' . $row["inspector"] . '</td>
+                <td>' . $row["note"] . '</td>
+            </tr>';
+        }
+
+        $conn->close();
+        ?>
+    </tbody>
+</table>
+
+
+
+<table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform5">
+<thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tarih</th>
+        <th scope="col">Müşteri</th>
+        <th scope="col">Ürün Adı</th>
+        <th scope="col">Filtre Seri No</th>
+        <th scope="col">Pompa Seri No</th>
+        <th scope="col">Çok Yollu Vana Seri No</th>
+        <th scope="col">Kurulum Kontrolü</th>
+        <th scope="col">Test Kontrolü</th>
+        <th scope="col">Temizlik Kontrolü</th>
+        <th scope="col">Kutu Eleman Kontrolü</th>
+        <th scope="col">Etiket Kontrolü</th>
+        <th scope="col">Filtre Ünite Alt Kontrolü</th>
+        <th scope="col">Kabul/Red Sonucu</th>
+        <th scope="col">Notlar</th>
+        <th scope="col">Denetçi</th>
+    </tr>
+</thead>
+<tbody>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM filtration_control_form";
+        $result = $conn->query($sql);
+
+        if (!$result) {
+            die("Invalid query: " . $conn->error);
+        }
+
+        while ($row = $result->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>' . $row["id"] . '</td>
+                <td>' . $row["date_time"] . '</td>
+                <td>' . $row["customer"] . '</td>
+                <td>' . $row["product_name"] . '</td>
+                <td>' . $row["filter_serial_no"] . '</td>
+                <td>' . $row["pump_serial_no"] . '</td>
+                <td>' . $row["multiport_valve_serial_no"] . '</td>
+                <td>' . ($row["installation_check"] ? "Evet" : "Hayır") . '</td>
+                <td>' . ($row["test_check"] ? "Evet" : "Hayır") . '</td>
+                <td>' . ($row["cleaning_check"] ? "Evet" : "Hayır") . '</td>
+                <td>' . ($row["in_box_element_control"] ? "Evet" : "Hayır") . '</td>
+                <td>' . ($row["label_check"] ? "Evet" : "Hayır") . '</td>
+                <td>' . ($row["filter_unit_foot_check"] ? "Evet" : "Hayır") . '</td>
+                <td>' . $row["acceptance_rejection_result"] . '</td>
+                <td>' . $row["notes"] . '</td>
+                <td>' . $row["inspector"] . '</td>
+            </tr>';
+        }
+
+        $conn->close();
+    ?>
+</tbody>
+</table>
+
+
+
                         </div>
                     </div>
                 </div>
