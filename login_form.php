@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
       }
      
    }else{
-      $error[] = 'incorrect email or password!';
+      $error[] = 'Hatalı e-mail ya da şifre!';
    }
 
 };

@@ -74,7 +74,6 @@ if ($result_total && $result_total->num_rows > 0) {
 // Yüzde hesaplaması
 $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $totalCheckedItemsTotal) * 100) : 0;
 
-
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +86,8 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+
 
 </head>
 <body>
@@ -118,13 +119,9 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
         <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
         </a>
-        <form action="" method="GET">
-            <select id="exfiles" name="exfiles" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                <option value="">Dosya seç</option>
-                <option value="download">Excel Dosyası1</option>
-                <option value="download">Excel Dosyası2</option>
-            </select>
-        </form>
+        <a href="dosyalar.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-paperclip me-2"></i>Dosya
+        </a>
         <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-chart-line me-2"></i>Analytics
         </a>
@@ -250,7 +247,11 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 <li class="nav-item">
                     <a class="nav-link" href="#tableform5" data-tab="form5">form5</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tableform6" data-tab="form6">form6</a>
+                </li>
             </ul>
+
             <table class="table bg-white rounded shadow-sm table-hover" id="tableform1">
             <thead>
                                 <tr>
@@ -333,6 +334,9 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
       $conn->close();
    ?>
     </tbody>
+
+    <a class="btn btn-success" href="export_excel.php">Excel'e Aktar</a>
+
 </table>
 
 
@@ -598,6 +602,67 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 </tbody>
 </table>
 
+<table class="table bg-white rounded shadow-sm table-hover" id="tableform6">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İncelenen Miktar</th>
+            <th scope="col">Ürün İnceleme Etiketi</th>
+            <th scope="col">Sap Kontrolü</th>
+            <th scope="col">Pin Kontrolü</th>
+            <th scope="col">Hava Test Miktarı</th>
+            <th scope="col">Su Test Miktarı</th>
+            <th scope="col">Giriş Kontrolü</th>
+            <th scope="col">Renk Kontrolü</th>
+            <th scope="col">Sonuç</th>
+            <th scope="col">Notlar</th>
+            <th scope="col">İnceleyen</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM valve_periodic_control_form";
+        $result = $conn->query($sql);
+
+        if (!$result) {
+            die("Invalid query: " . $conn->error);
+        }
+
+        while ($row = $result->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>' . $row["id"] . '</td>
+                <td>' . $row["date_time"] . '</td>
+                <td>' . $row["inspection_quantity"] . '</td>
+                <td>' . $row["label_product_inspection"] . '</td>
+                <td>' . $row["handle_check"] . '</td>
+                <td>' . $row["pin_flap_check"] . '</td>
+                <td>' . $row["air_test_quantity"] . '</td>
+                <td>' . $row["water_test_quantity"] . '</td>
+                <td>' . $row["input_check"] . '</td>
+                <td>' . $row["color_check"] . '</td>
+                <td>' . $row["result"] . '</td>
+                <td>' . $row["notes"] . '</td>
+                <td>' . $row["inspector"] . '</td>
+            </tr>';
+        }
+
+        $conn->close();
+    ?>
+    </tbody>
+</table>
 
 
                         </div>

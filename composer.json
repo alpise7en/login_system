@@ -1,0 +1,15 @@
+{
+    "name": "alperencoskun/login-system",
+    "description": "Kullanıcı Giriş Sistemi Projesi",
+    "type": "project",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^7.4",
+        "phpoffice/phpspreadsheet": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "YourNamespace\\": "src/"
+        }
+    }
+}
