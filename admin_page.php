@@ -109,7 +109,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+<div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
     <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
@@ -120,22 +120,13 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
         </a>
         <a href="dosyalar.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-paperclip me-2"></i>Dosya
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-chart-line me-2"></i>Analytics
+            <i class="fas fa-file-download"></i> Excel indir
         </a>
         <a href="kayit.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-paperclip me-2"></i>Kullanıcı ekle
         </a>
         <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-shopping-cart me-2"></i>Store Mng
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-gift me-2"></i>Products
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-comment-dots me-2"></i>Chat
+            <i class="fas fa-chart-line me-2"></i>Analytics
         </a>
         <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
             <i class="fas fa-power-off me-2"></i>Logout
@@ -185,7 +176,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                <h3 class="fs-2"><?php echo $totalCheckedItemsToday; ?></h3>
-                                <p class="fs-5">Bugün Kontrol Edilenler</p>
+                                <p class="fs-5">Bugün Kontrol Edilen</p>
                             </div>
                         </div>
                     </div>
@@ -194,7 +185,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                             <h3 class="fs-2"><?php echo $totalCheckedItemsWeekly; ?></h3>
-                                <p class="fs-5">Bu hafta kontrol edilenler</p>
+                                <p class="fs-5">Bu hafta kontrol edilen</p>
                             </div>
                         </div>
                     </div>
@@ -203,7 +194,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                             <h3 class="fs-2"><?php echo $totalCheckedItemsMonthly; ?></h3>
-                                <p class="fs-5">Bu ay kontrol edilenler</p>
+                                <p class="fs-5">Bu ay kontrol edilen</p>
                             </div>
                         </div>
                     </div>
@@ -212,14 +203,14 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                   <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                         <h3 class="fs-2"><?php echo $totalCheckedItemsTotal; ?></h3>
-                        <p class="fs-5">Toplam kontrol edilenler</p>
+                        <p class="fs-5">Toplam kontrol edilen</p>
                     </div>
                 </div>
             </div>
 
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded" style="width: 300px; height: 184px;">
-         <canvas id="myBarChart"></canvas>
-        </div>
+                 <canvas id="myBarChart"></canvas>
+            </div>
 
                 <div class="row my-5">
                 <h3 class="fs-4 mb-3 recent-orders-heading">Forms</h3>
@@ -246,9 +237,6 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#tableform5" data-tab="form5">form5</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tableform6" data-tab="form6">form6</a>
                 </li>
             </ul>
 
@@ -335,15 +323,13 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
    ?>
     </tbody>
 
-    <a class="btn btn-success" href="export_excel.php">Excel'e Aktar</a>
-
 </table>
 
 
 <table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform2">
 <thead>
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">#</th>
         <th scope="col">Müşteri Adı</th>
         <th scope="col">Ürün Kodu</th>
         <th scope="col">Sipariş Sayısı</th>
@@ -401,7 +387,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 <table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform3">
 <thead>
         <tr>
-            <th scope="col">ID</th>
+            <th scope="col">#</th>
             <th scope="col">Tarih</th>
             <th scope="col">Müşteri</th>
             <th scope="col">Ürün Adı</th>
@@ -477,7 +463,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 <table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform4">
     <thead>
         <tr>
-            <th scope="col">ID</th>
+            <th scope="col">#</th>
             <th scope="col">Tarih</th>
             <th scope="col">Müşteri</th>
             <th scope="col">Ürün Adı</th>
@@ -537,7 +523,7 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 <table class="table bg-white rounded shadow-sm table-hover d-none" id="tableform5">
 <thead>
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">#</th>
         <th scope="col">Tarih</th>
         <th scope="col">Müşteri</th>
         <th scope="col">Ürün Adı</th>
@@ -602,68 +588,6 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
 </tbody>
 </table>
 
-<table class="table bg-white rounded shadow-sm table-hover" id="tableform6">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tarih</th>
-            <th scope="col">İncelenen Miktar</th>
-            <th scope="col">Ürün İnceleme Etiketi</th>
-            <th scope="col">Sap Kontrolü</th>
-            <th scope="col">Pin Kontrolü</th>
-            <th scope="col">Hava Test Miktarı</th>
-            <th scope="col">Su Test Miktarı</th>
-            <th scope="col">Giriş Kontrolü</th>
-            <th scope="col">Renk Kontrolü</th>
-            <th scope="col">Sonuç</th>
-            <th scope="col">Notlar</th>
-            <th scope="col">İnceleyen</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "user_db";
-
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        if ($conn->connect_error) {
-            die("Connection Failed: " . $conn->connect_error);
-        }
-
-        $sql = "SELECT * FROM valve_periodic_control_form";
-        $result = $conn->query($sql);
-
-        if (!$result) {
-            die("Invalid query: " . $conn->error);
-        }
-
-        while ($row = $result->fetch_assoc()) {
-            echo '
-            <tr>
-                <td>' . $row["id"] . '</td>
-                <td>' . $row["date_time"] . '</td>
-                <td>' . $row["inspection_quantity"] . '</td>
-                <td>' . $row["label_product_inspection"] . '</td>
-                <td>' . $row["handle_check"] . '</td>
-                <td>' . $row["pin_flap_check"] . '</td>
-                <td>' . $row["air_test_quantity"] . '</td>
-                <td>' . $row["water_test_quantity"] . '</td>
-                <td>' . $row["input_check"] . '</td>
-                <td>' . $row["color_check"] . '</td>
-                <td>' . $row["result"] . '</td>
-                <td>' . $row["notes"] . '</td>
-                <td>' . $row["inspector"] . '</td>
-            </tr>';
-        }
-
-        $conn->close();
-    ?>
-    </tbody>
-</table>
-
 
                         </div>
                     </div>
@@ -710,6 +634,9 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
         if (event.key === "Enter") {
             filterTable("tableform1"); // İlk tablo için filtreleme
             filterTable("tableform2"); // İkinci tablo için filtreleme
+            filterTable("tableform3");
+            filterTable("tableform4");
+            filterTable("tableform5");
         }
     });
 </script>
@@ -782,7 +709,6 @@ $percent = ($totalCheckedItemsTotal > 0) ? round(($totalCheckedItemsMonthly / $t
         });
     });
 </script>
-
 
 </body>
 

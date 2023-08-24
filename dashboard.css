@@ -1,278 +1,151 @@
 :root {
-    --main-bg-color: blue;
-    --main-text-color: black;
-    --second-text-color: #bbbec5;
-    --second-bg-color: white;
-  }
-  
-  .primary-text {
-    color: var(--main-text-color);
-  }
-  
-  .second-text {
-    color: var(--second-text-color);
-  }
-  
-  .primary-bg {
-    background-color: var(--main-bg-color);
-  }
-  
-  .secondary-bg {
-    background-color: var(--second-bg-color);
-  }
-  
-  .rounded-full {
-    border-radius: 100%;
-  }
-  
-  #wrapper {
-    overflow-x: hidden;
-    background-image: linear-gradient(
-      to right,
-      #16113a,
-      #16113a,
-      #16113a,
-      #16113a,
-      #16113a
-    );
-  }
-  
+  --main-bg-color: blue;
+  --main-text-color: black;
+  --second-text-color: #bbbec5;
+  --second-bg-color: white;
+}
+
+.primary-text {
+  color: var(--main-text-color);
+}
+
+.second-text {
+  color: var(--second-text-color);
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+#wrapper {
+  overflow-x: hidden;
+  background-image: linear-gradient(to right, #16113a, #16113a, #16113a, #16113a, #16113a);
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+  color: white;
+}
+
+.list-group-item {
+  border: none;
+  padding: 20px 30px;
+  color: black;
+}
+
+.list-group-item.active {
+  background-color: transparent;
+  color: var(--main-text-color);
+  font-weight: bold;
+  border: none;
+}
+
+@media (min-width: 768px) {
   #sidebar-wrapper {
-    min-height: 100vh;
-    margin-left: -15rem;
-    -webkit-transition: margin 0.25s ease-out;
-    -moz-transition: margin 0.25s ease-out;
-    -o-transition: margin 0.25s ease-out;
-    transition: margin 0.25s ease-out;
-  }
-  
-  #sidebar-wrapper .sidebar-heading {
-    padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
-  }
-  
-  #sidebar-wrapper .list-group {
-    width: 15rem;
-  }
-  
-  #page-content-wrapper {
-    min-width: 100vw;
-  }
-  
-  #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
   }
-  
-  #menu-toggle {
-    cursor: pointer;
-    color: white;
-  }
-  
-  .list-group-item {
-    border: none;
-    padding: 20px 30px;
-    color: black
-  }
-  
-  .list-group-item.active {
-    background-color: transparent;
-    color: var(--main-text-color);
-    font-weight: bold;
-    border: none;
-  }
-  
-  @media (min-width: 768px) {
-    #sidebar-wrapper {
-      margin-left: 0;
-    }
-  
-    #page-content-wrapper {
-      min-width: 0;
-      width: 100%;
-    }
-  
-    #wrapper.toggled #sidebar-wrapper {
-      margin-left: -15rem;
-    }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
   }
 
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
 .logo {
-    width: 50px; /* Görüntüyü yarı oranında küçültmek için %50 */
-    height: auto; /* Genişlik oranına bağlı olarak otomatik yükseklik */
+  width: 50px;
+  height: auto;
 }
 
 .input-group .form-control {
-        width: 500px; /* İstediğiniz genişliği burada belirleyebilirsiniz */
-  }  
-
-  .table {
-    table-layout: fixed;
-    white-space: nowrap;
-    border-collapse: collapse;
-    width: 100%;
-    border: 4px solid #ccc;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: initial; /* Uzun sütun başlıklarını tamamen göstermek için text-overflow değerini initial olarak ayarlayın */
-  }
-  
-  /* İstenilen sütunlara göre genişlik değerlerini belirleyebilirsiniz */
-  th:nth-child(1),
-  td:nth-child(1) {
-      width: 100px; /* "Kod" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(2),
-  td:nth-child(2) {
-      width: 120px; /* "Seri No" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(3),
-  td:nth-child(3) {
-      width: 150px; /* "Üretim Tarihi" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(4),
-  td:nth-child(4) {
-      width: 300px; /* "Çizimlere ve özel taleplere uygunluk" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(5),
-  td:nth-child(5) {
-      width: 300px; /* "Dış temizlik ve yüzey kalitesi" sütunu için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  /* Diğer sütunlar için de aynı şekilde genişlik belirleyebilirsiniz */
-  th:nth-child(6),
-  td:nth-child(6) {
-      width: 100px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(7),
-  td:nth-child(7) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(8),
-  td:nth-child(8) {
-      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(9),
-  td:nth-child(9) {
-      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(10),
-  td:nth-child(10) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(11),
-  td:nth-child(11) {
-      width: 250px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(12),
-  td:nth-child(12) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(13),
-  td:nth-child(13) {
-      width: 300px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(14),
-  td:nth-child(14) {
-      width: 210px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  th:nth-child(15),
-  td:nth-child(15) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(16),
-  td:nth-child(16) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(17),
-  td:nth-child(17) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(18),
-  td:nth-child(18) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(19),
-  td:nth-child(19) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(20),
-  td:nth-child(20) {
-      width: 180px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(21),
-  td:nth-child(21) {
-      width: 200px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-
-  th:nth-child(22),
-  td:nth-child(22) {
-      width: 150px; /* Sütun için istediğiniz genişlik değerini burada belirtebilirsiniz */
-  }
-  
-  /* Tablo satırlarının ortalanması */
-  tbody tr {
-    text-align: center;
-  }
-
-
-  /* Grafiğin içerisinde yer aldığı konteynerin boyutunu belirleyin */
-  .chart-container {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    padding: 10px;
+  width: 500px;
 }
 
-/* Bar grafiğin boyutunu düzenleyin */
+.table {
+  table-layout: fixed;
+  white-space: nowrap;
+  border-collapse: collapse;
+  width: 100%;
+  border: 4px solid #ccc;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: initial;
+}
+
+/* Diğer sütunlar için genişlik belirlemeleri buraya eklenir */
+/* ... */
+
+tbody tr {
+  text-align: center;
+}
+
+.chart-container {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
 #myBarChart {
   width: 100% !important;
   height: 100% !important;
 }
 
 .fs-2.m-0 {
-  color: white; /* Başka bir renk seçimi burada */
+  color: white;
 }
 
-
-.admin_name {
-  color: white; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
-}
-
+.admin_name,
 .fas {
-  color: black; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+  color: white;
 }
 
 .recent-orders-heading {
-  color: white; /* Yeni rengi burada belirleyin, istediğiniz renk kodunu kullanabilirsiniz */
+  color: white;
 }
 
-/* "Ara" butonunun rengini değiştiren stil */
 .btn-primary {
-  background-color: #e5c852; /* Yeni renk kodunu burada belirleyin, istediğiniz renk ile değiştirin */
-  border-color: #ff0000; /* Buton kenarlık rengini değiştirmek için */
+  background-color: #e5c852;
+  border-color: #ff0000;
 }
 
 .fas.fa-user {

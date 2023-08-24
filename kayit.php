@@ -100,14 +100,9 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
   <label class="form-check-label"  for="regularCheckbox">User</label>
   </div>
   <button type="submit" name="kaydet" class="btn btn-primary">Kaydet</button>
+  <a href="admin_page.php" class="btn btn-primary">Anasayfa</a>
   
 </form>
-<div class="text-center mt-4">
-      <a href="admin_page.php" class="btn btn-primary">Anasayfa</a>
-    </div> <!-- Anasayfa butonu -->
-
-    </div>
-</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

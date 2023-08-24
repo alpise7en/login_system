@@ -1,80 +1,98 @@
 <?php
-require 'vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
-// Örnek başlıklar
-$headers = [
-    'Kod', 'Seri No', 'Üretim Tarihi', 'Çizimlere ve özel taleplere uygunluk', 
-    'Dış temizlik ve yüzey kalitesi', 'İç temizlik', 'Boru bağlantılarının terazisi', 
-    'İç elemanların uygunluğu', 'Kafadan terazi kontrolü', 'kapak, oring, vida, somun kontrolü',
-    'Filtre ayak temizliği', 'Filtre ayağına uygun vida kontrolü', 'Etiketlerin kontrolü',
-    'İç elyaf laminasyonu', 'Sonuç', 'Notlar', 'Numarası', 'Kontrol süresi',
-    'Kontrol eden', 'Kontrol tarihi', 'Video linki', 'Müşteri'
-];
-
-// Örnek veriler
-$data = [
-    [
-        'id' => 1,
-        'client' => 'Müşteri Adı',
-        'code' => 'Kod123',
-        'serial_number' => 'SN456',
-        'production_date' => '2023-08-23',
-        'compliance_with_drawings_special_requests' => 'Uygun',
-        'external_cleaning_surface_quality' => 'Temiz',
-        'internal_cleaning_surface_quality' => 'Temiz',
-        'scales_of_pipe_connections' => 'Uyumlu',
-        'compatibility_of_internal_elements' => 'Uyumlu',
-        'checking_the_scale_from_the_head' => 'Kontrol Edildi',
-        'checking_the_cover_o_ring_screw_nut' => 'Kontrol Edildi',
-        'filter_foot_cleaning' => 'Temiz',
-        'screw_checking_suitable_for_filter_foot' => 'Uygun',
-        'checking_the_labels' => 'Kontrol Edildi',
-        'internal_fiber_lamination' => 'Lamine Edildi',
-        'result' => 'Olumlu',
-        'number' => 'Num123',
-        'notes' => 'Özel notlar burada',
-        'checker' => 'Kontrolcü Adı',
-        'check_time' => '12:34',
-        'check_date' => '2023-08-23',
-        'video_link' => 'https://example.com/video123'
-    ],
-    // Diğer veriler burada olacak
-];
-
-
-$spreadsheet = new Spreadsheet();
-$sheet = $spreadsheet->getActiveSheet();
-
-// Başlıkları ekleme
-$col = 'A';
-foreach ($headers as $header) {
-    $sheet->setCellValue($col . '1', $header);
-    $col++;
-}
-
-// Verileri ekleme
-$row = 2;
-foreach ($data as $item) {
-    $col = 'A';
-    foreach ($item as $value) {
-        $sheet->setCellValue($col . $row, $value);
-        $col++;
-    }
-    $row++;
-}
-
-// Excel dosyasını kaydetme
-$writer = new Xlsx($spreadsheet);
-$filename = 'veriler.xlsx';
-$writer->save($filename);
-
-// Dosyayı indirme
-header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="' . $filename . '"');
-header('Cache-Control: max-age=0');
-$writer->save('php://output');
+// Start the session (if not already started)
+session_start();
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+	<style>
+		body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #16113a; /* Arka plan rengi */
+    }
+
+		.container {
+			width: 80%;
+			max-width: 1200px;
+			margin: 50px auto;
+			background-color: #16113a;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 0;
+			padding: 20px 0;
+			color: #007bff;
+			border-bottom: 2px solid #007bff;
+		}
+
+		.download-buttons {
+			text-align: center;
+			margin-top: 24px;
+		}
+
+		.download-buttons a {
+			display: block;
+			width: 100%;
+			padding: 12px 16px;
+			border-radius: 4px;
+			text-decoration: none;
+			color: #fff;
+			background-color: #007bff;
+			transition: background-color 0.2s ease;
+			margin-bottom: 8px;
+		}
+
+		.download-buttons a:hover {
+			background-color: #0056b3;
+		}
+
+		.footer {
+			text-align: center;
+			margin-top: 40px;
+			padding-top: 20px;
+			border-top: 1px solid #007bff;
+		}
+
+		.footer p {
+			margin: 0;
+			color: #007bff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Excel Export</h1>
+		<div class="button">
+			<a class="btn btn-primary" href="admin_page.php">Geri dön</a>
+		</div>
+		<div class="download-buttons">
+			<a class="btn btn-primary" href="download_forms.php?form_type=quality_control_forms">Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=multiway_valve_control_form">Çok Yollu Vana Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=assembly_quality_control_form">Montaj Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=ladder_final_control">Merdiven Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=filtration_control">Filtrasyon Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=valve_periodic_control_form">Vana Periyodik Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=pump_section_periodic_check">Pompa Bölümü Periyodik Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=rotation_shell_quality_control">Rotasyon Kabuk Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=white_product_and_electronic_form">Beyaz Ürün ve Elektronik Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=pompa_final_quality_control">Pompa Final Kalite Kontrol Formlarını İndir</a>
+			<a class="btn btn-primary" href="download_forms.php?form_type=manufacturing_approval_form">İmalat Onay Formlarını İndir</a>
+		</div>
+        <div class="footer">
+            <p>Gemaş &copy; <?php echo date('Y'); ?></p>
+        </div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
